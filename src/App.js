@@ -9,13 +9,21 @@ const App = (props) => {
     setUserDataArray((prevUserDataArray) => {
       return [...prevUserDataArray, userData];
     });
-    console.log(userDataArray);
   }
 
+  const deleteUserHandler = (userId) => {
+    setUserDataArray((prevUserDataArray) => {
+      const updatedUsers = prevUserDataArray.filter(
+        (user) => user.id !== userId
+      );
+      return updatedUsers;
+    });
+  };
+
   return (
-    <div style={{ backgroundColor: "#b3caf8" }}>
+    <div style={{ backgroundColor: "#c7dde7" }}>
       <AddUser onSetUserData={userItemHandler} />
-      <UsersList userData={userDataArray} />
+      <UsersList onDelete={deleteUserHandler} userData={userDataArray} />
     </div>
   );
 };
