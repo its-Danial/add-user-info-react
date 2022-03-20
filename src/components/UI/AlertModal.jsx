@@ -16,7 +16,7 @@ const AlertModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>{props.errorText}</p>
+        <p>{props.errortext}</p>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

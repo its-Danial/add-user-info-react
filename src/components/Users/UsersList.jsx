@@ -5,9 +5,13 @@ import styles from "./UsersList.module.css";
 const UsersList = (props) => {
   return (
     <ListGroup className={styles.usersList}>
-      <ListGroup.Item action variant="light">
-        Cras justo odio
-      </ListGroup.Item>
+      {props.userData.map((item) => {
+        return (
+          <ListGroup.Item key={Math.random()} action variant="light">
+            {item.userName} age is {item.userAge}
+          </ListGroup.Item>
+        );
+      })}
     </ListGroup>
   );
 };

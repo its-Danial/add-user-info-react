@@ -12,14 +12,10 @@ const AddUser = (props) => {
 
   const [modalErrorTxt, setModalErrorTxt] = useState("");
 
-  const [userData, setUserData] = useState([{}]);
-
   const handleUserNameSubmit = (event) => {
-    console.log(event.target.value);
     setUserName(event.target.value);
   };
   const handleUserAgeSubmit = (event) => {
-    console.log(event.target.value);
     setUserAge(event.target.value);
   };
   const handleFormSubmit = (event) => {
@@ -36,12 +32,11 @@ const AddUser = (props) => {
       setModalShow(true);
       return;
     }
-    setUserData({
+
+    props.onSetUserData({
       userName: userName,
       userAge: userAge,
     });
-
-    console.log(userData);
     setUserName("");
     setUserAge("");
   };
@@ -74,7 +69,7 @@ const AddUser = (props) => {
         </ListGroup>
       </form>
       <AlertModal
-        errorText={modalErrorTxt}
+        errortext={modalErrorTxt}
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
